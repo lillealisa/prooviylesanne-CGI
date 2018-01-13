@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by serkp on 2.03.2017.
  */
 public class DentistVisitDTO {
-
+    @NotNull
     @Size(min = 1, max = 50)
     String dentistName;
 
