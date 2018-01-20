@@ -5,12 +5,21 @@
         <tr>
             <td><p th:text="#{arsti.nimi}">arsti.nimi</p></td>
             <!-- <td><input type="text" th:field="*{dentistName}"/></td>-->
-            <td> <select>
+            <!-- <select>
                 <option value="arst1">Doktor Pille</option>
                 <option value="arst2">Doktor Milli</option>
                 <option value="arst3">Doktor Gena</option>
                 <option value="arst4">Doktor House</option>
+            </select></td>-->
+
+            <td>  <select th:field="*{selectedDentist}">
+                <option
+                        th:each="dentist: *{dentists}"
+                        th:value="${dentist.id}"
+                        th:text="${dentist.name}" ></option>
             </select></td>
+
+
             <td th:if="${#fields.hasErrors('dentistName')}" th:errors="*{dentistName}">Nime viga</td>
         </tr>
         <tr>
