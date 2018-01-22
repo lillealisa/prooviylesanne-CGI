@@ -4,13 +4,6 @@
     <table>
         <tr>
             <td><p th:text="#{arsti.nimi}">arsti.nimi</p></td>
-            <!-- <td><input type="text" th:field="*{dentistName}"/></td>-->
-            <!-- <select>
-                <option value="arst1">Doktor Pille</option>
-                <option value="arst2">Doktor Milli</option>
-                <option value="arst3">Doktor Gena</option>
-                <option value="arst4">Doktor House</option>
-            </select></td>-->
 
             <td>  <select th:field="*{selectedDentist}">
                 <option
@@ -24,7 +17,17 @@
         </tr>
         <tr>
             <td><p th:text="#{visiidi.kuupaev}">visiidi.kuupaev</p></td>
-            <td><input type="text" th:field="*{visitTime}"/></td>
+            <td><input type="text" th:field="*{visitTime}"/>
+
+            <select th:field="*{selectedHour}">
+                <option
+                        th:each="hour: *{availableHours}"
+                        th:value="${hour.key}"
+                        th:text="${hour.value}">
+                </option>
+            </select>
+            </td>
+
             <!--<td>
 
                 <select id="day"

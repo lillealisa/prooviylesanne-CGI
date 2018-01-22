@@ -34,10 +34,12 @@ public class DentistVisitService {
         ArrayList<Dentist> dentists = this.getDentists();
 
         for(Dentist dentist : dentists) {
-            if (dentist.id == id) {
+            if (id.equals(dentist.id)) {
                 return dentist;
             }
+
         }
+
 
         return null;
     }

@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 @EnableAutoConfiguration
@@ -35,6 +37,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
     }
 
     @PostMapping("/")
+
     public String postRegisterForm(@Valid DentistVisitDTO dentistVisitDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "form";
@@ -43,15 +46,29 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
         // dentistVisitService.addVisit(dentistVisitDTO.getDentistName(), dentistVisitDTO.getVisitTime());
 
         String dentistId = dentistVisitDTO.getSelectedDentist();
-        Dentist dentist =    dentistVisitService.getDentistByID(dentistId);
-        if (dentist != null) {
-            String dentistName = dentist.getName();
-            dentistVisitService.addVisit(dentistName,  dentistVisitDTO.getVisitTime()   );
-        }
-        return "redirect:/results";
+        Dentist dentist = dentistVisitService.getDentistByID(dentistId);
+        String dentistName = "";
 
+        if (dentist != null) {
+            dentistName = dentist.getName();
+        } else {
+            throw new RuntimeException("Doctor not found!");
+        }
+
+        Date visitDate = dentistVisitDTO.getVisitTime();
+
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(visitDate);
+        calendar.set(Calendar.HOUR_OF_DAY, dentistVisitDTO.getSelectedHour());
+        Date visitDateTime=calendar.getTime();
+
+
+        dentistVisitService.addVisit(dentistName, visitDateTime );
+
+        return "redirect:/results";
+        }
 
     }
 
 
-}
+
