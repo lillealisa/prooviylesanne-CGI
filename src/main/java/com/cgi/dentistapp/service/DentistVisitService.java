@@ -7,6 +7,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.cgi.dentistapp.Dentist;
+import com.cgi.dentistapp.dto.DentistVisitDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,19 @@ public class DentistVisitService {
     public List<DentistVisitEntity> listVisits () {
         return dentistVisitDao.getAllVisits();
     }
-    public static ArrayList<Dentist> getDentists(){
+    public Dentist getDentistByID(String id)
+    {
+        ArrayList<Dentist> dentists = this.getDentists();
+
+        for(Dentist dentist : dentists) {
+            if (dentist.id == id) {
+                return dentist;
+            }
+        }
+
+        return null;
+    }
+    public static ArrayList<Dentist> getDentists() {
         Dentist arst1 = new Dentist("arst1", "Doktor Pille");
         Dentist arst2 = new Dentist("arst2", "Doktor Millie");
         Dentist arst3 = new Dentist("arst3", "Doktor Dillie");

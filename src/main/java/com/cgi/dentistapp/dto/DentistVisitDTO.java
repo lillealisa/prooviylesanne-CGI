@@ -21,7 +21,6 @@ public class DentistVisitDTO {
 
     ArrayList<Dentist> dentists;
 
-
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     Date visitTime;
 
