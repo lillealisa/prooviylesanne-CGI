@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.LinkedHashMap;
-import java.util.Locale;
 
 @SpringBootApplication
 public class DentistAppApplication {
@@ -16,18 +15,48 @@ public class DentistAppApplication {
     }
 
     public static LinkedHashMap<Integer, String> getAvailableHours() {
-        LinkedHashMap<Integer, String> hours = new LinkedHashMap<Integer, String>();
+            LinkedHashMap<Integer, String> hours = new LinkedHashMap<Integer, String>();
 
-        hours.put(9, "9:00");
-        hours.put(10, "10:00");
-        hours.put(11, "11:00");
-        hours.put(12, "12:00");
-        hours.put(13, "13:00");
-        hours.put(14, "14:00");
-        hours.put(15, "15:00");
-        hours.put(16, "16:00");
+            for (int i = 9; i <= 16; i++) {
+                hours.put(i, i + ":00");
 
-        return hours;
+                return hours;
+            }
+        }
+    public static LinkedHashMap<Integer, String> getAvailableDays() {
+        LinkedHashMap<Integer, String> days = new LinkedHashMap<Integer, String>();
+
+        for (int i = 1; i <= 31; i++) {
+            days.put(i, i + ".");
+
+
+            }
+        }
+    public static LinkedHashMap<Integer, String> getAvailableMonths() {
+        LinkedHashMap<Integer, String> months = new LinkedHashMap<Integer, String>();
+
+        months.put(1, "jaanuar");
+        months.put(2, "veebruar");
+        months.put(3, "märts");
+        months.put(4, "aprill");
+        months.put(5, "mai");
+        months.put(6, "juuni");
+        months.put(7, "juuli");
+        months.put(8, "august");
+        months.put(9, "september");
+        months.put(10, "oktoober");
+        months.put(11, "november");
+        months.put(12, "detsember");
+
+    return months;
+    }
+    public static LinkedHashMap<Integer, String> getAvailableYear() {
+        LinkedHashMap<Integer, String> years = new LinkedHashMap<Integer, String>();
+
+        years.put(2018, "2018");
+
+      return years;
     }
 
-}
+    }
+

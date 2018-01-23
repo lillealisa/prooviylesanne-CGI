@@ -30,6 +30,11 @@ public class DentistVisitDTO {
         dentists= DentistVisitService.getDentists();
     }
 
+    public DentistVisitDTO(String dentistName, Date visitTime) {
+        this.visitTime = visitTime;
+        dentists= DentistVisitService.getDentists();
+    }
+
     public String getSelectedDentist() {
         return selectedDentist;
     }
@@ -45,6 +50,7 @@ public class DentistVisitDTO {
     public void setDentists(ArrayList<Dentist> dentists) {
         this.dentists = dentists;
     }
+
 
     public Date getVisitTime() {
         return visitTime;
