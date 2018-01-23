@@ -15,7 +15,6 @@ public class DentistAppApplication {
 
     }
 
-
     public static LinkedHashMap<Integer, String> getAvailableHours() {
         LinkedHashMap<Integer, String> hours = new LinkedHashMap<Integer, String>();
 
@@ -30,6 +29,5 @@ public class DentistAppApplication {
 
         return hours;
     }
-
 
 }

@@ -37,9 +37,7 @@ public class DentistVisitService {
             if (id.equals(dentist.id)) {
                 return dentist;
             }
-
         }
-
 
         return null;
     }
@@ -56,6 +54,5 @@ public class DentistVisitService {
         dentists.add(arst4);
         dentists.add(arst5);
         return dentists;
-
     }
 }

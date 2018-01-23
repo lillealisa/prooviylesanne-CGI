@@ -24,7 +24,7 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
 
     @Autowired
     private DentistVisitService dentistVisitService;
-    
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/results").setViewName("results");
@@ -43,8 +43,6 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             return "form";
         }
 
-        // dentistVisitService.addVisit(dentistVisitDTO.getDentistName(), dentistVisitDTO.getVisitTime());
-
         String dentistId = dentistVisitDTO.getSelectedDentist();
         Dentist dentist = dentistVisitService.getDentistByID(dentistId);
         String dentistName = "";
@@ -57,18 +55,17 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
 
         Date visitDate = dentistVisitDTO.getVisitTime();
 
-        Calendar calendar=Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.setTime(visitDate);
         calendar.set(Calendar.HOUR_OF_DAY, dentistVisitDTO.getSelectedHour());
-        Date visitDateTime=calendar.getTime();
+        Date visitDateTime = calendar.getTime();
 
-
-        dentistVisitService.addVisit(dentistName, visitDateTime );
+        dentistVisitService.addVisit(dentistName, visitDateTime);
 
         return "redirect:/results";
-        }
-
     }
+
+}
 
 
 

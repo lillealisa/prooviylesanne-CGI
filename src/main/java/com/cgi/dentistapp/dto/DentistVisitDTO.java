@@ -16,9 +16,6 @@ import java.util.LinkedHashMap;
  */
 public class DentistVisitDTO {
 
-    @Size(min = 1, max = 50)
-    String dentistName;
-
     String selectedDentist;
 
     ArrayList<Dentist> dentists;
@@ -31,14 +28,6 @@ public class DentistVisitDTO {
 
     public DentistVisitDTO() {
         dentists= DentistVisitService.getDentists();
-    }
-
-    public DentistVisitDTO(String dentistName, Date visitTime) {
-        this.dentistName = dentistName;
-        this.visitTime = visitTime;
-        dentists= DentistVisitService.getDentists();
-
-
     }
 
     public String getSelectedDentist() {
@@ -55,14 +44,6 @@ public class DentistVisitDTO {
 
     public void setDentists(ArrayList<Dentist> dentists) {
         this.dentists = dentists;
-    }
-
-    public String getDentistName() {
-        return dentistName;
-    }
-
-    public void setDentistName(String dentistName) {
-        this.dentistName = dentistName;
     }
 
     public Date getVisitTime() {
