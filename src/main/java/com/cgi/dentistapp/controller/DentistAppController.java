@@ -53,15 +53,16 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
             throw new RuntimeException("Doctor not found!");
         }
 
-        Date visitDate = dentistVisitDTO.getVisitTime();
+
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(visitDate);
+
         calendar.set(Calendar.HOUR_OF_DAY, dentistVisitDTO.getSelectedHour());
         calendar.set(Calendar.DAY_OF_MONTH, dentistVisitDTO.getSelectedDay());
-        calendar.set(Calendar.MONTH, dentistVisitDTO.getSelectedMonth());
+        calendar.set(Calendar.MONTH, dentistVisitDTO.getSelectedMonth()-1);
         calendar.set(Calendar.YEAR, dentistVisitDTO.getSelectedYear());
-
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
 
         Date visitDateTime = calendar.getTime();
 

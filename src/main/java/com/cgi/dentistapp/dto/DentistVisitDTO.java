@@ -39,9 +39,6 @@ public class DentistVisitDTO {
 
     Integer selectedYear;
 
-    //siia lisa ise kõik veergude paarid, mis Sul vaja on.
-    //ma arvan, et years, months, days, kõik võiksid olla samamoodi
-    //tehtud selle LinkedHashMap<Integer, String> klassiga.
 
 
     public DentistVisitDTO() {

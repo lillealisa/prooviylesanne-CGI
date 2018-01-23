@@ -14,9 +14,9 @@
         </tr>
         <tr>
             <td><p th:text="#{visiidi.kuupaev}">visiidi.kuupaev</p></td>
-            <td> <!--<input type="text" th:field="*{visitTime}"/> -->
+             <!--<input type="text" th:field="*{visitTime}"/> -->
 
-                <select th:field="*{selectedHour}">
+            <td> <select th:field="*{selectedHour}">
                 <option
                         th:each="hour: *{availableHours}"
                         th:value="${hour.key}"
@@ -33,14 +33,14 @@
                 </select>
                 <select th:field="*{selectedMonth}">
                     <option
-                            th:each="month: *{availableMonth}"
+                            th:each="month: *{availableMonths}"
                             th:value="${month.key}"
                             th:text="${month.value}">
                     </option>
                 </select>
                 <select th:field="*{selectedYear}">
                     <option
-                            th:each="year: *{availableYear}"
+                            th:each="year: *{availableYears}"
                             th:value="${year.key}"
                             th:text="${year.value}">
                     </option>
