@@ -58,6 +58,11 @@ public class DentistAppController extends WebMvcConfigurerAdapter {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(visitDate);
         calendar.set(Calendar.HOUR_OF_DAY, dentistVisitDTO.getSelectedHour());
+        calendar.set(Calendar.DAY_OF_MONTH, dentistVisitDTO.getSelectedDay());
+        calendar.set(Calendar.MONTH, dentistVisitDTO.getSelectedMonth());
+        calendar.set(Calendar.YEAR, dentistVisitDTO.getSelectedYear());
+
+
         Date visitDateTime = calendar.getTime();
 
         dentistVisitService.addVisit(dentistName, visitDateTime);

@@ -22,9 +22,27 @@ public class DentistVisitDTO {
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     Date visitTime;
+
     LinkedHashMap<Integer, String> availableHours = DentistAppApplication.getAvailableHours();
 
     Integer selectedHour;
+
+    LinkedHashMap<Integer, String> availableDays = DentistAppApplication.getAvailableDays();
+
+    Integer selectedDay;
+
+    LinkedHashMap<Integer, String> availableMonths = DentistAppApplication.getAvailableMonths();
+
+    Integer selectedMonth;
+
+    LinkedHashMap<Integer, String> availableYears = DentistAppApplication.getAvailableYear();
+
+    Integer selectedYear;
+
+    //siia lisa ise kõik veergude paarid, mis Sul vaja on.
+    //ma arvan, et years, months, days, kõik võiksid olla samamoodi
+    //tehtud selle LinkedHashMap<Integer, String> klassiga.
+
 
     public DentistVisitDTO() {
         dentists= DentistVisitService.getDentists();
@@ -76,4 +94,51 @@ public class DentistVisitDTO {
         this.selectedHour = selectedHour;
     }
 
+    public LinkedHashMap<Integer, String> getAvailableDays() {
+        return availableDays;
+    }
+
+    public void setAvailableDays(LinkedHashMap<Integer, String> availableDays) {
+        this.availableDays = availableDays;
+    }
+
+    public Integer getSelectedDay() {
+        return selectedDay;
+    }
+
+    public void setSelectedDay(Integer selectedDay) {
+        this.selectedDay = selectedDay;
+    }
+
+    public LinkedHashMap<Integer, String> getAvailableMonths() {
+        return availableMonths;
+    }
+
+    public void setAvailableMonths(LinkedHashMap<Integer, String> availableMonths) {
+        this.availableMonths = availableMonths;
+    }
+
+    public Integer getSelectedMonth() {
+        return selectedMonth;
+    }
+
+    public void setSelectedMonth(Integer selectedMonth) {
+        this.selectedMonth = selectedMonth;
+    }
+
+    public LinkedHashMap<Integer, String> getAvailableYears() {
+        return availableYears;
+    }
+
+    public void setAvailableYears(LinkedHashMap<Integer, String> availableYears) {
+        this.availableYears = availableYears;
+    }
+
+    public Integer getSelectedYear() {
+        return selectedYear;
+    }
+
+    public void setSelectedYear(Integer selectedYear) {
+        this.selectedYear = selectedYear;
+    }
 }
